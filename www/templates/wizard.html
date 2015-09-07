@@ -1,5 +1,5 @@
 <ion-view view-title="Slide Wizard">
-  <ion-content scroll="false">
+  <ion-content has-footer="true">
     <div class="card" style="color: red; text-align: center;" ng-show="errorMessage">
       {{errorMessage}}
     </div>
@@ -97,6 +97,9 @@
         </div>
       </ion-slide>
     </ion-slide-box>
+
+  </ion-content>
+  <ion-footer-bar>
     <div class="bar bar-footer">
       <div class="row">
         <div class="col-25">
@@ -116,6 +119,5 @@
         </div>
       </div>
     </div>
-
-  </ion-content>
+  </ion-footer-bar>
 </ion-view>
