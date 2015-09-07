@@ -6,10 +6,8 @@ angular.module('starter.controllers', [])
 
 .controller('WizardCtrl', function($scope, $ionicSlideBoxDelegate,$timeout) {
 
-  var sbox = $ionicSlideBoxDelegate.$getByHandle('wizard');
-
   //Overall stuff
-  $scope.slide = -1;
+
   $scope.colors = [
     'red','orange','yellow','green','blue','purple'
   ];
@@ -26,6 +24,9 @@ angular.module('starter.controllers', [])
   $scope.back = function(){
     $ionicSlideBoxDelegate.previous();
   }
+
+  $scope.slide = -1;
+  $scope.slides = [];
   $timeout(function(){
     $scope.$watch(function(){
         return $ionicSlideBoxDelegate.currentIndex();
@@ -51,7 +52,7 @@ angular.module('starter.controllers', [])
   },0);
 
 
-  $scope.slides = [];
+
   //Setup the slides
   $scope.slide1 = new Slide();
   $scope.slide1.validators.push(function(){
