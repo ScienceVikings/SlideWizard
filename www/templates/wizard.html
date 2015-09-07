@@ -1,0 +1,121 @@
+<ion-view view-title="Slide Wizard">
+  <ion-content scroll="false">
+    <div class="card" style="color: red; text-align: center;" ng-show="errorMessage">
+      {{errorMessage}}
+    </div>
+    <ion-slide-box show-pager="false" deletgate-handle="wizard">
+      <ion-slide>
+        <div class="box">
+          <h1>What is your name?</h1>
+          <div class="list">
+            <label class="item item-input">
+              <input type="text" placeholder="First Name" ng-model="slide1.firstName">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="Last Name" ng-model="slide1.lastName">
+            </label>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>What is your quest?</h1>
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Quests
+              </div>
+              <select ng-model="slide2.quest">
+                <option ng-repeat="quest in quests" value="{{quest}}">{{quest}}</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>What is your favorite color?</h1>
+          <div class="list" style="text-align: left;">
+            <label class="item item-radio" ng-repeat="color in colors">
+              <input type="radio" name="colors" ng-model="slide3.color" value="{{color}}">
+              <div class="item-content" style="color: {{color}}">
+                {{color}}
+              </div>
+              <i class="radio-icon ion-checkmark"></i>
+            </label>
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>What is the airspeed velocity of an unladen swallow?</h1>
+            <ul class="list" style="text-align: left;">
+              <li class="item item-toggle">
+                 African
+                 <label class="toggle toggle-royal">
+                   <input type="checkbox" ng-model="slide4.african">
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+              </li>
+              <li class="item item-toggle">
+                 European
+                 <label class="toggle toggle-royal">
+                   <input type="checkbox" ng-model="slide4.european">
+                   <div class="track">
+                     <div class="handle"></div>
+                   </div>
+                 </label>
+              </li>
+            </ul>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>How much do you love kittens?</h1>
+          <div class="item range">
+            <!-- <i class="icon ion-volume-low"></i> -->
+            0
+            <input type="range" min="0" max="100" value="33" name="kittenLove" ng-model="slide5.love"/>
+            100
+            <!-- <i class="icon ion-volume-high"></i> -->
+          </div>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div class="box">
+          <h1>FINAL SCORE!</h1>
+          <div class="card" ng-repeat="slide in slides">
+            <div class="item item-divider">
+              Slide {{$index+1}}
+            </div>
+            <div class="item item-text-wrap">
+              {{slide}}
+            </div>
+          </div>
+        </div>
+      </ion-slide>
+    </ion-slide-box>
+    <div class="bar bar-footer">
+      <div class="row">
+        <div class="col-25">
+          <button class="button icon-left ion-chevron-left button-calm" ng-click="back()">
+            Back
+          </button>
+        </div>
+        <div class="col-50">
+          <div style="text-align: center">
+            Step {{slide+1}} of 6
+          </div>
+        </div>
+        <div class="col-25">
+          <button class="button icon-right ion-chevron-right button-calm" style="float: right;" ng-click="next()">
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
