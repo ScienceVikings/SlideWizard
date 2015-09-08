@@ -32,54 +32,27 @@
           </div>
         </div>
       </ion-slide>
-      <ion-slide>
-        <div class="box">
+      <ion-slide class="box">
+
           <h1>What is your favorite color?</h1>
-          <div class="list" style="text-align: left;">
-            <label class="item item-radio" ng-repeat="color in colors">
-              <input type="radio" name="colors" ng-model="slide3.color" value="{{color}}">
-              <div class="item-content" style="color: {{color}}">
-                {{color}}
-              </div>
-              <i class="radio-icon ion-checkmark"></i>
-            </label>
-          </div>
-        </div>
+          <ion-radio value="{{color}}" ng-model="slide3.color" style="color: {{color}}; text-align:left;" ng-repeat="color in colors">
+            {{color}}
+          </ion-radio>
       </ion-slide>
       <ion-slide>
         <div class="box">
           <h1>What is the airspeed velocity of an unladen swallow?</h1>
-            <ul class="list" style="text-align: left;">
-              <li class="item item-toggle">
-                 African
-                 <label class="toggle toggle-royal">
-                   <input type="checkbox" ng-model="slide4.african">
-                   <div class="track">
-                     <div class="handle"></div>
-                   </div>
-                 </label>
-              </li>
-              <li class="item item-toggle">
-                 European
-                 <label class="toggle toggle-royal">
-                   <input type="checkbox" ng-model="slide4.european">
-                   <div class="track">
-                     <div class="handle"></div>
-                   </div>
-                 </label>
-              </li>
-            </ul>
+          <ion-toggle ng-model="slide4.african" toggle-class="toggle-royal" style="text-align: left;"> African </ion-toggle>
+          <ion-toggle ng-model="slide4.european" toggle-class="toggle-royal" style="text-align: left;"> European </ion-toggle>
         </div>
       </ion-slide>
       <ion-slide>
         <div class="box">
           <h1>How much do you love kittens?</h1>
           <div class="item range">
-            <!-- <i class="icon ion-volume-low"></i> -->
-            0
-            <input type="range" min="0" max="100" value="33" name="kittenLove" ng-model="slide5.love"/>
-            100
-            <!-- <i class="icon ion-volume-high"></i> -->
+            <i class="icon ion-heart-broken"></i>
+            <input type="range" min="0" max="100" value="33" ng-model="slide5.love" />
+            <i class="icon ion-heart"></i>
           </div>
         </div>
       </ion-slide>
